@@ -15,10 +15,14 @@ return new class extends Migration
         Schema::create('isian_jawabans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreign('id_pengguna')->references('id')->on('pengguna');
-            $table->foreign('id_jawaban')->references('id')->on('jawaban');
-            $table->foreign('id_test_ujian')->references('id')->on('test_ujian');
-            $table->foreign('id_soal')->references('id')->on('soal');
+            $table->unsignedBigInteger('id_pengguna');
+            $table->unsignedBigInteger('id_jawaban');
+            $table->unsignedBigInteger('id_test_ujian');
+            $table->unsignedBigInteger('id_soal');
+            $table->foreign('id_pengguna')->references('id')->on('penggunas');
+            $table->foreign('id_jawaban')->references('id')->on('jawabans');
+            $table->foreign('id_test_ujian')->references('id')->on('test_ujians');
+            $table->foreign('id_soal')->references('id')->on('soals');
         });
     }
 

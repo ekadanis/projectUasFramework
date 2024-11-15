@@ -17,7 +17,8 @@ return new class extends Migration
             $table->dateTime('tanggal_mulai');
             $table->dateTime('tanggal_berakhir');
             $table->integer('durasi');
-            $table->foreign('id_test_ujian')->references('id')->on('isian_jawaban');
+            $table->unsignedBigInteger('id_test_ujian');
+            $table->foreign('id_test_ujian')->references('id')->on('isian_jawabans');
         });
     }
 

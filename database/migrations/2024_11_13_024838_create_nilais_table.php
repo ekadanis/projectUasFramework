@@ -16,8 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('total_nilai');
             $table->timestamp('tanggal_nilai');
-            $table->foreign('id_pengguna')->references('id')->on('pengguna');
-            $table->foreign('id_ujian')->references('id')->on('ujian');
+            $table->unsignedBigInteger('id_pengguna');
+            $table->unsignedBigInteger('id_ujian');
+            $table->foreign('id_pengguna')->references('id')->on('penggunas');
+            $table->foreign('id_ujian')->references('id')->on('ujians');
         });
     }
 

@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('kunci_jawabans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreign('id_jawaban')->references('id')->on('jawaban');
-            $table->foreign('id_soal')->references('id')->on('soal');
+            $table->unsignedBigInteger('id_jawaban');
+            $table->unsignedBigInteger('id_soal');
+            $table->foreign('id_jawaban')->references('id')->on('jawabans');
+            $table->foreign('id_soal')->references('id')->on('soals');
         });
     }
 
